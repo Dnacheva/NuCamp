@@ -143,8 +143,19 @@ class CommentForm extends Component{
                             <div className="form-group">
                                 <Label htmlFor="text">Comment</Label>
                                     <Control.textarea model=".text" id="text" name="text" rows="6" className="form-control"
-
+                                        validators = {{
+                                            minLength: minLength(15)
+                                        }}
                                     />
+                                <Errors 
+                                className="text-danger" 
+                                model=".text" 
+                                show="touched" 
+                                component="div"
+                                messages = {{
+                                    minLength: 'Must be at least 15 characters'
+                                }}
+                                />
                             </div>
                             <Button type="submit"  value = "submit" color="primary"> Submit </Button>
                         </LocalForm>
